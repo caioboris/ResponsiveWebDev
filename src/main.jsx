@@ -4,11 +4,11 @@ import App from './App.jsx'
 
 //Bloco de rotas
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import EditarProdutos from './routes/EditarProdutos.jsx';
-import Home from './routes/Home.jsx';
-import Produtos from './routes/Produtos.jsx';
-import Error404 from './routes/Error404.jsx';
-import ExcluirProdutos from './routes/ExcluirProdutos.jsx';
+import EditarProdutos from './routes/Produtos/EditarProdutos.jsx';
+import Home from './routes/Home/Home.jsx';
+import Produtos from './routes/Produtos/Produtos.jsx';
+import Error404 from './routes/Erro/Error404.jsx';
+import ExcluirProdutos from './routes/Produtos/ExcluirProdutos.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <App/>,

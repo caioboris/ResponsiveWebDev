@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ListaProdutos } from "../components/ListaProdutos";
+import { ListaProdutos } from "../../components/ListaProdutos";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
 
