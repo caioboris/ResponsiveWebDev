@@ -7,12 +7,18 @@ export default function Produtos() {
 
   document.title = "Produtos";
 
+  const estiloTabela = {
+    borderCollapse: "collapse",
+    margin: "0 auto",
+    border: "2px solid #ccc"  
+  }
+
   return (
     <>
       <h1>Lista de Produtos</h1>
 
       <div>
-        <table>
+        <table style={estiloTabela}>
           <tr>
             <th>ID</th>
             <th>NOME</th>
