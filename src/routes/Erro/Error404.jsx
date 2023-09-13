@@ -1,7 +1,12 @@
-
+import { Link } from "react-router-dom";
 
 export default function Error404() {
   return (
-    <div>Error404</div>
+    <>
+    <div>
+      <h1>Error404</h1>
+      <Link to='/'>Home</Link>
+    </div>
+    </>  
   )
 }
