@@ -31,7 +31,7 @@ export default function Produtos() {
   return (
     <>
       <h1>Lista de Produtos</h1>
-      {open ? <ModalInserir open={open} setOpen={setOpen}/>: ""/}
+      {open ? <ModalInserir open={open} setOpen={setOpen}/>: "" }
       <button onClick={()=>setOpen(true)}>OPEN - MODAL</button>
       <div>
         <button onClick={()=>{setCount(count + 1)}}>Counter - {count} </button>
