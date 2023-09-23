@@ -1,30 +1,38 @@
 import { Link } from "react-router-dom";
-import { ListaProdutos } from "../../components/ListaProdutos";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
 import styles from "../Produtos.module.css";
 import { useEffect, useState } from "react";
+import ModalInserir from "../../components/ModalInserir/ModalInserir";
 
 export default function Produtos() {
 
   document.title = "Produtos";
 
   const [count, setCount] = useState(0);
-  const [novaLista, setNovaLista] = useState([{}]);
+  const [lista, setLista] = useState([{}])
   
   //Neste formato o useEffect executa sempre que ocorrer uma atualização dentro do componente Produto
   useEffect(() =>{
-    setNovaLista(ListaProdutos);
+    fetch("http://localhost:5000/produtos",{
+      method:"GET",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    .then((response) =>response.json()
+    .then((listaProdutos)=> {
+      setLista(listaProdutos)
+    }));
   },[]);
 
-  //Neste formato o useEffect executa apenas quando ocorrer o carregamento do componente principal
-  useEffect(()=>{
-    console.log("executa apenas quando ocorrer o carregamento do componente principal")
-  },[count]);
+  const [open, setOpen] = useState(false)
 
   return (
     <>
       <h1>Lista de Produtos</h1>
+      {open ? <ModalInserir open={open} setOpen={setOpen}/>: ""/}
+      <button onClick={()=>setOpen(true)}>OPEN - MODAL</button>
       <div>
         <button onClick={()=>{setCount(count + 1)}}>Counter - {count} </button>
       </div>
@@ -41,7 +49,7 @@ export default function Produtos() {
             </tr>
           </thead>
           <tbody>
-            {novaLista.map((item, indice) => (
+            {lista.map((item, indice) => (
               <tr key={indice} className={styles.tblRow}>
                 <td>{item.id}</td>
                 <td>{item.nome}</td>
