@@ -3,7 +3,7 @@ import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
 import styles from "../Produtos.module.css";
 import { useEffect, useState } from "react";
-import ModalInserir from "../../components/ModalInserir/ModalInserir";
+import ModalAction from "../../components/ModalAction/ModalAction";
 
 export default function Produtos() {
 
@@ -31,7 +31,7 @@ export default function Produtos() {
   return (
     <>
       <h1>Lista de Produtos</h1>
-      {open ? <ModalInserir open={open} setOpen={setOpen}/>: "" }
+      {open ? <ModalAction open={open} setOpen={setOpen}/>: "" }
       <button onClick={()=>setOpen(true)}>OPEN - MODAL</button>
       <div>
         <button onClick={()=>{setCount(count + 1)}}>Counter - {count} </button>
